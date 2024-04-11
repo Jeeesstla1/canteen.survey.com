@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>canteenweb.com</title>
+
+    <style>
+        body {
+            background-image: url('food.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;  
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        header {
+            background-color: #FFFD37;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 10vh;
+        }
+
+        input[type="text"],
+        input[type="submit"] {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>CANTEEN-SURVEY</header>
+
+    <form id="surveyForm">
+        Name: <input type="text" placeholder="Input your name" id="name"> 
+        Section: <input type="text" placeholder="Input your section" id="section"> 
+        <br><br>
+        <label for="buyFood">Do you regularly buy food at the canteen?</label><br>
+        <input type="checkbox" name="buyFood" id="buyFood_YES" value="YES">YES
+        <input type="checkbox" name="buyFood" id="buyFood_NO" value="NO">NO
+        <input type="checkbox" name="buyFood" id="buyFood_SOMETIMES" value="SOMETIMES">SOMETIMES
+        <br><br>
+        <label for="overpricedFood">Do you think that foods at the canteen are overpriced?</label><br>
+        <input type="checkbox" name="overpricedFood" id="overpricedFood_YES" value="YES">YES
+        <input type="checkbox" name="overpricedFood" id="overpricedFood_NO" value="NO">NO
+        <br><br>
+        <label for="healthyFood">Does the canteen provide healthy food for the students?</label><br>
+        <input type="checkbox" name="healthyFood" id="healthyFood_YES" value="YES">YES
+        <input type="checkbox" name="healthyFood" id="healthyFood_NO" value="NO">NO
+        <input type="checkbox" name="healthyFood" id="healthyFood_SOMETIMES" value="SOMETIMES">SOMETIMES
+        <br><br>
+        <label for="waitingLines">Do you often experience long waiting lines at the canteen?</label><br>
+        <input type="checkbox" name="waitingLines" id="waitingLines_YES" value="YES">YES
+        <input type="checkbox" name="waitingLines" id="waitingLines_NO" value="NO">NO
+        <input type="checkbox" name="waitingLines" id="waitingLines_SOMETIMES" value="SOMETIMES">SOMETIMES
+        <br><br>
+        <label for="improvements">Are there should be improvements to make at the school canteen?</label><br>
+        <input type="checkbox" name="improvements" id="improvements_YES" value="YES">YES
+        <input type="checkbox" name="improvements" id="improvements_NO" value="NO">NO
+        <br>
+        What food should they add at the canteen? <input type="text" placeholder="Input your answer" id="item">
+        <br>
+        What is your favorite items to buy at the canteen? <input type="text" placeholder="Input your answer" id="favoriteItems">
+        <br>
+        On a daily average, how much do you spend at the schools canteen? <input type="text" placeholder="Input your answer" id="dailySpending">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+document.getElementById('surveyForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+   
+        var name = document.getElementById('name').value || '';
+    var section = document.getElementById('section').value || '';
+    var buyFood = document.querySelector('input[name="buyFood"]:checked').value || '';
+    var overpricedFood = document.querySelector('input[name="overpricedFood"]:checked').value || '';
+    var healthyFood = document.querySelector('input[name="healthyFood"]:checked').value || '';
+    var waitingLines = document.querySelector('input[name="waitingLines"]:checked').value || '';
+    var improvements = document.querySelector('input[name="improvements"]:checked').value || '';
+    var item = document.getElementById('item').value || '';
+    var favoriteItems = document.getElementById('favoriteItems').value || '';
+    var dailySpending = document.getElementById('dailySpending').value || '';
+
+    localStorage.setItem ('Name', name);
+    localStorage.setItem ('Section', section);
+    localStorage.setItem('buyFood', buyFood);
+    localStorage.setItem('overpricedFood', overpricedFood);
+    localStorage.setItem('healthyFood', healthyFood);
+    localStorage.setItem('waitingLines', waitingLines);
+    localStorage.setItem('improvements', improvements);
+    localStorage.setItem('item', item);
+    localStorage.setItem('favoriteItems', favoriteItems);
+    localStorage.setItem('dailySpending', dailySpending);
+    
+    alert('Survey submitted successfully!');
+});
+    </script>
+</body>
+</html>
